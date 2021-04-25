@@ -15,6 +15,7 @@ class Quote {
             this.endQuote[Math.floor(Math.random()*this.endQuote.length)]);
     }
 
+
     // events(){
     //     btn.addEventListener()
     // }
@@ -40,6 +41,14 @@ let endQuote = [
 
 let churchillQuote = new Quote(startQuote, middleQuote, endQuote);
 // console.log(churchillQuote.randomQuote());
+
+
+document.getElementById("btnGenerate").addEventListener('click', function () {
+    churchillQuote.randomQuote();
+})
+
+
+
 
 
 
