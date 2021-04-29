@@ -8,11 +8,21 @@ class Quote {
     }
 
     randomQuote(){
-        console.log(this.startQuote[Math.floor(Math.random()*this.startQuote.length)]
+        let quoteGenerate = this.startQuote[Math.floor(Math.random()*this.startQuote.length)]
             +' '+
             this.middleQuote[Math.floor(Math.random()*this.middleQuote.length)]
             +' '+
-            this.endQuote[Math.floor(Math.random()*this.endQuote.length)]);
+            this.endQuote[Math.floor(Math.random()*this.endQuote.length)];
+
+        let paraQuoteGenerate = document.createElement("p");
+
+        let containerParaQuoteGenerate = document.getElementById("containerQuoteGenerate");
+
+        containerParaQuoteGenerate.innerHTML = "";
+
+        paraQuoteGenerate.innerHTML = quoteGenerate;
+
+        containerParaQuoteGenerate.appendChild(paraQuoteGenerate);
     }
 
 
