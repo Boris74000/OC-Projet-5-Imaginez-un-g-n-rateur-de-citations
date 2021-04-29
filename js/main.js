@@ -7,22 +7,46 @@ class Quote {
         // this.randomQuote();
     }
 
-    randomQuote(){
-        let quoteGenerate = this.startQuote[Math.floor(Math.random()*this.startQuote.length)]
-            +' '+
-            this.middleQuote[Math.floor(Math.random()*this.middleQuote.length)]
-            +' '+
-            this.endQuote[Math.floor(Math.random()*this.endQuote.length)];
+    getQuoteAuthor() {
+        let quoteAuthor = document.getElementById("quoteAuthorSelect").value;
+        // console.log(quoteAuthor);
+        if (quoteAuthor === "empty") {
+            alert("Vous n'auriez pas oublié de choisir un auteur par hasard ?! ;-)");
+        } else {
+            return quoteAuthor;
+        }
+    }
 
-        let paraQuoteGenerate = document.createElement("p");
+    getQuoteNumber() {
+        let quoteNumber = document.getElementById("quoteNumberSelect").value;
+        // console.log(quoteNumber);
+        if (quoteNumber === "empty") {
+            alert("Vous n'auriez pas oublié de choisir un nombre de citation par hasard ?! ;-)");
+        } else {
+            return quoteNumber;
+        }
+    }
 
+    randomQuote() {
+        // console.log(this.getQuoteNumber());
         let containerParaQuoteGenerate = document.getElementById("containerQuoteGenerate");
-
         containerParaQuoteGenerate.innerHTML = "";
+        // console.log("actif");
+        for (let i = 0; i < this.getQuoteNumber(); i++) {
+            // console.log(`citation ${i}`);
+            // console.log("test");
+            let quoteGenerate = this.startQuote[Math.floor(Math.random()*this.startQuote.length)]
+                +' '+
+                this.middleQuote[Math.floor(Math.random()*this.middleQuote.length)]
+                +' '+
+                this.endQuote[Math.floor(Math.random()*this.endQuote.length)];
 
-        paraQuoteGenerate.innerHTML = quoteGenerate;
+            let paraQuoteGenerate = document.createElement("p");
 
-        containerParaQuoteGenerate.appendChild(paraQuoteGenerate);
+            paraQuoteGenerate.innerHTML = quoteGenerate;
+
+            containerParaQuoteGenerate.appendChild(paraQuoteGenerate);
+        }
     }
 
 
@@ -56,6 +80,11 @@ let churchillQuote = new Quote(startQuote, middleQuote, endQuote);
 document.getElementById("btnGenerate").addEventListener('click', function () {
     churchillQuote.randomQuote();
 })
+
+// document.getElementById("getQuoteNumber").addEventListener("click", function () {
+//     churchillQuote.getQuoteNumber();
+// })
+//
 
 
 
