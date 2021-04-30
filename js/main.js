@@ -3,17 +3,19 @@ class Quote {
         this.startQuote= startQuote;
         this.middleQuote = middleQuote;
         this.endQuote = endQuote;
-        // this.events()
+        this.events()
         // this.randomQuote();
     }
 
     getQuoteAuthor() {
-        let quoteAuthor = document.getElementById("quoteAuthorSelect").value;
-        // console.log(quoteAuthor);
-        if (quoteAuthor === "empty") {
+        let authorValue = document.getElementById("quoteAuthorSelect").value;
+        // Avantage à utiliser un switch ?
+        if (authorValue === "empty") {
             alert("Vous n'auriez pas oublié de choisir un auteur par hasard ?! ;-)");
-        } else {
-            return quoteAuthor;
+        } else if (authorValue === "winstonC") {
+            churchillQuote.randomQuote();
+        } else if (authorValue === "albertE") {
+            einsteinQuote.randomQuote();
         }
     }
 
@@ -29,8 +31,7 @@ class Quote {
 
     randomQuote() {
         // console.log(this.getQuoteNumber());
-        let containerParaQuoteGenerate = document.getElementById("containerQuoteGenerate");
-        containerParaQuoteGenerate.innerHTML = "";
+        this.deleteQuote();
         // console.log("actif");
         for (let i = 0; i < this.getQuoteNumber(); i++) {
             // console.log(`citation ${i}`);
@@ -45,14 +46,26 @@ class Quote {
 
             paraQuoteGenerate.innerHTML = quoteGenerate;
 
-            containerParaQuoteGenerate.appendChild(paraQuoteGenerate);
+            document.getElementById("containerQuoteGenerate").appendChild(paraQuoteGenerate);
         }
     }
 
+    deleteQuote() {
+        let containerParaQuoteGenerate = document.getElementById("containerQuoteGenerate");
+        containerParaQuoteGenerate.innerHTML = "";
+    }
 
-    // events(){
-    //     btn.addEventListener()
-    // }
+
+    events(){
+        // Utilisation getters et setters ou Function.prototype.bind ?
+        let instance = this;
+        document.getElementById("btnGenerate").addEventListener('click', function () {
+            instance.getQuoteAuthor();
+        });
+        document.getElementById("btnDelete").addEventListener('click', function () {
+            instance.deleteQuote();
+        });
+    }
 }
 
 //========== Quote Array Churchill ==============
@@ -97,25 +110,6 @@ let endQuoteEinstein = [
 
 let churchillQuote = new Quote(startQuoteChurchill, middleQuoteChurchill, endQuoteChurchill);
 let einsteinQuote = new Quote(startQuoteEinstein, middleQuoteEinstein, endQuoteEinstein);
-// console.log(churchillQuote.randomQuote());
-
-
-document.getElementById("btnGenerate").addEventListener('click', function () {
-    let authorValue = document.getElementById("quoteAuthorSelect").value;
-    // Avantage à utiliser un switch ?
-    if (authorValue === "empty") {
-        alert("Vous n'auriez pas oublié de choisir un auteur par hasard ?! ;-)");
-    } else if (authorValue === "winstonC") {
-        churchillQuote.randomQuote();
-    } else if (authorValue === "albertE") {
-        einsteinQuote.randomQuote();
-    }
-});
-
-// document.getElementById("getQuoteNumber").addEventListener("click", function () {
-//     churchillQuote.getQuoteNumber();
-// })
-//
 
 
 
