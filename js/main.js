@@ -4,66 +4,57 @@ class Quote {
         this.middleQuote = middleQuote;
         this.endQuote = endQuote;
         this.events()
-        // this.randomQuote();
     }
 
     getQuoteAuthor() {
-        let authorValue = document.getElementById("quoteAuthorSelect").value;
-        // Avantage à utiliser un switch ?
-        if (authorValue === "empty") {
+        this.authorValue = document.getElementById("quoteAuthorSelect").value;
+        if (this.authorValue === "empty") {
             alert("Vous n'auriez pas oublié de choisir un auteur par hasard ?! ;-)");
-        } else if (authorValue === "winstonC") {
+        } else if (this.authorValue === "winstonC") {
             churchillQuote.randomQuote();
-        } else if (authorValue === "albertE") {
+        } else if (this.authorValue === "albertE") {
             einsteinQuote.randomQuote();
         }
     }
 
     getQuoteNumber() {
-        let quoteNumber = document.getElementById("quoteNumberSelect").value;
-        // console.log(quoteNumber);
-        if (quoteNumber === "empty") {
+        this.quoteNumber = document.getElementById("quoteNumberSelect").value;
+        if (this.quoteNumber === "empty") {
             alert("Vous n'auriez pas oublié de choisir un nombre de citation par hasard ?! ;-)");
         } else {
-            return quoteNumber;
+            return this.quoteNumber;
         }
     }
 
     randomQuote() {
-        // console.log(this.getQuoteNumber());
         this.deleteQuote();
-        // console.log("actif");
         for (let i = 0; i < this.getQuoteNumber(); i++) {
-            // console.log(`citation ${i}`);
-            // console.log("test");
-            let quoteGenerate = this.startQuote[Math.floor(Math.random()*this.startQuote.length)]
+            this.quoteGenerate = this.startQuote[Math.floor(Math.random()*this.startQuote.length)]
                 +' '+
                 this.middleQuote[Math.floor(Math.random()*this.middleQuote.length)]
                 +' '+
                 this.endQuote[Math.floor(Math.random()*this.endQuote.length)];
 
-            let paraQuoteGenerate = document.createElement("p");
+            this.paraQuoteGenerate = document.createElement("p");
 
-            paraQuoteGenerate.innerHTML = quoteGenerate;
+            this.paraQuoteGenerate.innerHTML = this.quoteGenerate;
 
-            document.getElementById("containerQuoteGenerate").appendChild(paraQuoteGenerate);
+            document.getElementById("containerQuoteGenerate").appendChild(this.paraQuoteGenerate);
         }
     }
 
     deleteQuote() {
-        let containerParaQuoteGenerate = document.getElementById("containerQuoteGenerate");
-        containerParaQuoteGenerate.innerHTML = "";
+        this.containerParaQuoteGenerate = document.getElementById("containerQuoteGenerate");
+        this.containerParaQuoteGenerate.innerHTML = "";
     }
 
 
-    events(){
-        // Utilisation getters et setters ou Function.prototype.bind ?
-        let instance = this;
-        document.getElementById("btnGenerate").addEventListener('click', function () {
-            instance.getQuoteAuthor();
+    events() {
+        document.getElementById("btnGenerate").addEventListener('click', () => {
+            this.getQuoteAuthor();
         });
-        document.getElementById("btnDelete").addEventListener('click', function () {
-            instance.deleteQuote();
+        document.getElementById("btnDelete").addEventListener('click', () => {
+            this.deleteQuote();
         });
     }
 }
