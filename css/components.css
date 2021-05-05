@@ -1,0 +1,19 @@
+.btnCustom {
+    padding: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    transition: transform 220ms ease-in-out;
+}
+
+.btnCustom:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.selectCustom {
+    background-color: #b9b4b4fc;
+    padding: 10px;
+    border: none;
+}

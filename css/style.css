@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.containerDisplayQuoteWithImg {
+    margin: 20px 0;
+}
+
+.displayQuoteWithImg--img {
+    display: flex;
+    justify-content: space-around;
+}
+
+.displayQuoteWithImg--img img {
+    width: 40%;
+    filter: blur(10px);
+}
+
+.displayQuoteWithImg--quote {
+    padding: 30px;
+    background-color: #b9b4b4fc;
+    margin-top: 20px;
+}
+
+.quoteOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quoteOptions--author, .quoteOptions--number {
+    margin: 5px;
+}
+
+.buttonQuote {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.buttonQuote--delete, .buttonQuote--generate {
+    margin: 5px;
+}
+
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .containerQuoteOptionsWithBtn {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+
+    .quoteOptions {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 920px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .displayQuoteWithImg--img img {
+        width: 30%;
+    }
+}
