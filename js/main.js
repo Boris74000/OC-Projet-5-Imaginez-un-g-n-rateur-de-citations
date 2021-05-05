@@ -1,64 +1,3 @@
-class Quote {
-    constructor(startQuote, middleQuote, endQuote) {
-        this.startQuote= startQuote;
-        this.middleQuote = middleQuote;
-        this.endQuote = endQuote;
-        this.events()
-    }
-
-    getQuoteAuthor() {
-        this.authorValue = document.getElementById("quoteAuthorSelect").value;
-        if (this.authorValue === "empty") {
-            alert("Vous n'auriez pas oublié de choisir un auteur par hasard ?! ;-)");
-        } else if (this.authorValue === "winstonC") {
-            churchillQuote.randomQuote();
-        } else if (this.authorValue === "albertE") {
-            einsteinQuote.randomQuote();
-        }
-    }
-
-    getQuoteNumber() {
-        this.quoteNumber = document.getElementById("quoteNumberSelect").value;
-        if (this.quoteNumber === "empty") {
-            alert("Vous n'auriez pas oublié de choisir un nombre de citation par hasard ?! ;-)");
-        } else {
-            return this.quoteNumber;
-        }
-    }
-
-    randomQuote() {
-        this.deleteQuote();
-        for (let i = 0; i < this.getQuoteNumber(); i++) {
-            this.quoteGenerate = this.startQuote[Math.floor(Math.random()*this.startQuote.length)]
-                +' '+
-                this.middleQuote[Math.floor(Math.random()*this.middleQuote.length)]
-                +' '+
-                this.endQuote[Math.floor(Math.random()*this.endQuote.length)];
-
-            this.paraQuoteGenerate = document.createElement("p");
-
-            this.paraQuoteGenerate.innerHTML = this.quoteGenerate;
-
-            document.getElementById("containerQuoteGenerate").appendChild(this.paraQuoteGenerate);
-        }
-    }
-
-    deleteQuote() {
-        this.containerParaQuoteGenerate = document.getElementById("containerQuoteGenerate");
-        this.containerParaQuoteGenerate.innerHTML = "";
-    }
-
-
-    events() {
-        document.getElementById("btnGenerate").addEventListener('click', () => {
-            this.getQuoteAuthor();
-        });
-        document.getElementById("btnDelete").addEventListener('click', () => {
-            this.deleteQuote();
-        });
-    }
-}
-
 //========== Quote Array Churchill ==============
 //===============================================
 let startQuoteChurchill = [
@@ -99,10 +38,21 @@ let endQuoteEinstein = [
     "Sa tâche est de se libérer par lui-même de cette prison en élargissant son cercle de compassion jusqu'à y inclure toutes les créatures vivantes et la nature entière dans toute sa beauté."
 ];
 
+
+
+
+
+
 let churchillQuote = new Quote(startQuoteChurchill, middleQuoteChurchill, endQuoteChurchill);
 let einsteinQuote = new Quote(startQuoteEinstein, middleQuoteEinstein, endQuoteEinstein);
+let generate = new Generate(churchillQuote, einsteinQuote);
 
-
+let element = document.getElementById("quoteAuthorSelect");
+element.addEventListener('change', () => {
+    if (element.value === "winstonC") {
+        document.getElementById("churchillImg").style.filter = "blur(0)";
+    }
+});
 
 
 
