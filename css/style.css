@@ -1,6 +1,20 @@
+@font-face {
+    font-family: 'retroTypoTitle';
+    src: url(../font/breamcatcher.ttf);
+}
+
+@font-face {
+    font-family: 'retroTypo';
+    src: url(../font/bakersfield_light.ttf);
+}
+
 body {
     margin: 0;
     padding: 0;
+}
+
+body, select, button  {
+    font-family: 'retroTypo', Arial, Serif;
 }
 
 .container {
@@ -13,6 +27,7 @@ body {
 
 h1 {
     text-align: center;
+    font-family: 'retroTypoTitle', Arial, Serif;
 }
 
 .containerDisplayQuoteWithImg {
@@ -29,10 +44,16 @@ h1 {
     filter: blur(10px);
 }
 
+#einsteinImg, #churchillImg {
+    transition: all 500ms ease-in-out;
+}
+
 .displayQuoteWithImg--quote {
     padding: 30px;
-    background-color: #b9b4b4fc;
     margin-top: 20px;
+    border: double 10px;
+    height: 200px;
+    overflow: auto;
 }
 
 .quoteOptions {
@@ -56,9 +77,6 @@ h1 {
 }
 
 
-@media (min-width: 576px) {
-
-}
 
 @media (min-width: 768px) {
     .container {

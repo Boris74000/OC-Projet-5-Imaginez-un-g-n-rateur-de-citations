@@ -3,6 +3,7 @@
     border: none;
     background-color: black;
     color: white;
+    cursor: pointer;
     transition: transform 220ms ease-in-out;
 }
 
