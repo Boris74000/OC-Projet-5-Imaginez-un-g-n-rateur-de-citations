@@ -18,7 +18,6 @@ body, select, button  {
 }
 
 .container {
-    width: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -52,7 +51,7 @@ h1 {
     padding: 30px;
     margin-top: 20px;
     border: double 10px;
-    height: 200px;
+    height: 135px;
     overflow: auto;
 }
 
@@ -76,7 +75,11 @@ h1 {
     margin: 5px;
 }
 
-
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
 
 @media (min-width: 768px) {
     .container {
@@ -99,6 +102,10 @@ h1 {
         max-width: 920px;
     }
 
+    .displayQuoteWithImg--quote {
+        height: 200px;
+    }
+
 }
 
 @media (min-width: 1200px) {
@@ -106,7 +113,19 @@ h1 {
         max-width: 1140px;
     }
 
+    .containerDisplayQuoteWithImg {
+        display: flex;
+    }
+
+    .displayQuoteWithImg--img {
+        flex-basis: 50%;
+    }
+
     .displayQuoteWithImg--img img {
-        width: 30%;
+        width: 45%;
+    }
+
+    .displayQuoteWithImg--quote {
+        flex-basis: 42%;
     }
 }
