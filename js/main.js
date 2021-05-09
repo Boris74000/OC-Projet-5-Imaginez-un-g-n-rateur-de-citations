@@ -1,4 +1,4 @@
-//========== Quote Array Churchill ==============
+//========== Tableau citations Churchill ==============
 //===============================================
 let startQuoteChurchill = [
     "La critique peut être désagréable mais elle est nécessaire.",
@@ -18,7 +18,7 @@ let endQuoteChurchill = [
     "Il n'y a que les cochons qui vous considèrent comme leurs égaux."
 ];
 
-//========== Quote Array Einstein ==============
+//========== Tableau citations Einstein ==============
 //===============================================
 let startQuoteEinstein = [
     "La théorie, c'est quand on sait tout et que rien ne fonctionne.",
@@ -38,21 +38,12 @@ let endQuoteEinstein = [
     "Sa tâche est de se libérer par lui-même de cette prison en élargissant son cercle de compassion jusqu'à y inclure toutes les créatures vivantes et la nature entière dans toute sa beauté."
 ];
 
-
-
-
-
-
+// Instanciation des deux classes
 let churchillQuote = new Quote(startQuoteChurchill, middleQuoteChurchill, endQuoteChurchill);
 let einsteinQuote = new Quote(startQuoteEinstein, middleQuoteEinstein, endQuoteEinstein);
 let generate = new Generate(churchillQuote, einsteinQuote);
 
-let element = document.getElementById("quoteAuthorSelect");
-element.addEventListener('change', () => {
-    if (element.value === "winstonC") {
-        document.getElementById("churchillImg").style.filter = "blur(0)";
-    }
-});
+
 
 
 

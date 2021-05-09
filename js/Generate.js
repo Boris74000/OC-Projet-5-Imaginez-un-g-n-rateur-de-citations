@@ -2,7 +2,6 @@ class Generate {
     constructor(generateChurchill, generateEinstein) {
         this.generateChurchill = generateChurchill;
         this.generateEinstein = generateEinstein;
-        // this.authorValue = document.getElementById("quoteAuthorSelect").value;
         this.events()
     }
 
