@@ -41,7 +41,6 @@ class Generate {
             this.getQuoteNumber();
 
             if (this.authorValue === "winstonC") {
-                console.log(this.authorValue);
                 churchillQuote.randomQuote(this.generateChurchill, this.quoteNumber);
             } else if (this.authorValue === "albertE") {
                 einsteinQuote.randomQuote(this.generateEinstein, this.quoteNumber);

@@ -75,6 +75,9 @@ h1 {
     margin: 5px;
 }
 
+
+/* ========= MEDIA QUERIES ========== */
+
 @media (min-width: 576px) {
     .container {
         max-width: 540px;

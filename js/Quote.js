@@ -17,7 +17,7 @@ class Quote {
 
             this.paraQuoteGenerate = document.createElement("p");
 
-            this.paraQuoteGenerate.innerHTML = this.quoteGenerate;
+            this.paraQuoteGenerate.textContent = this.quoteGenerate;
 
             document.getElementById("containerQuoteGenerate").appendChild(this.paraQuoteGenerate);
         }

@@ -4,7 +4,7 @@
     background-color: black;
     color: white;
     cursor: pointer;
-    transition: transform 220ms ease-in-out;
+    transition: background-color 300ms ease-in-out;
 }
 
 .btnCustom:hover {
